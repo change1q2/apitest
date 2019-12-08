@@ -1,0 +1,21 @@
+
+eval() 返回传入字符串的表达式的结果。
+1、简单表达式
+print(eval('1+2'))
+输出结果：3
+
+2、字符串转字典
+print(eval("{'name':'linux','age':18}")
+输出结果：{'name':'linux','age':18}
+
+3、传递全局变量
+print(eval("{'name':'linux','age':age}",{"age":1822}))
+输出结果：{'name': 'linux', 'age': 1822}
+
+4、传递本地变量
+age=18
+print(eval("{'name':'linux','age':age}",{"age":1822},locals()))
+输出结果：{'name': 'linux', 'age': 18}
+
+总结
+eval虽然方便，但是要注意安全性，可以将字符串转成表达式并执行，就可以利用执行系统命令，删除文件等操作。
