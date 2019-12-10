@@ -1,15 +1,22 @@
 """
 ============================
-Author:柠檬班-木森
-Time:2019/11/20
-E-mail:3247119728@qq.com
-Company:湖南零檬信息技术有限公司
+作者:seak
+时间:
+邮件:274882401@qq.com
+作用：
+题目：
 ============================
+对EXCLE表的读取和写入
 """
-import openpyxl
 
+
+import openpyxl
+import os
 
 # 用来保存用例数据
+from common.contants import DATA_DIR
+
+
 class CaseData:
     pass
 
@@ -101,7 +108,9 @@ class ReadExcel(object):
 
 
 
+#执行本脚本时踩调用次方法，导入其他甲苯中不执行
 if __name__ == '__main__':
-    excel = ReadExcel("cases.xlsx", "register")
+    excel = ReadExcel("apicases.xlsx", "login")
     data = excel.read_data()
-    print(data)
+    print(*data)
+    print(len(data))

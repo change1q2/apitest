@@ -1,44 +1,6 @@
-<<<<<<< HEAD
 from configparser import ConfigParser
-
-
-class MyConf(ConfigParser):
-
-    def __init__(self, filename, encoding):
-        super().__init__()
-        self.filename = filename
-        self.encoding = encoding
-#读取数据
-    def read_(self):
-        return super().read(filenames=self.filename, encoding=self.encoding)
-
-    def get(self, section, option):
-        return super().get(section, option)
-
-    def write(self, section, option, value):
-        super().set(section, option, value)
-
-"""
-这个类封装没讲完，可以先不写 下节课讲完再写
-
-
-"""
-=======
-"""
-============================
-作者:seak
-时间:
-邮件:274882401@qq.com
-作用：
-题目：
-============================
-"""
-import os
-from configparser import ConfigParser
-
-#使用继承的方法，会方便很多，不用一个个定义
-#定义一个MyConf2类继承ConfigParser方法    继承格式：  类名.(继承的类名)
 from common.contants import CONF_DIR
+import os
 
 
 class MyConf:
@@ -109,4 +71,7 @@ class MyConf:
 conf_path = os.path.join(CONF_DIR, "conf.ini")
 conf = MyConf(conf_path)
 
->>>>>>> company
+
+if __name__ == '__main__':
+    print(conf.get_str("env","url"))
+    print(conf.get_str("env","headers"))
