@@ -105,7 +105,7 @@ class TestRecharge(unittest.TestCase):
                 sql = case["check_sql"].format(conf.get_str("test_data",'user'))
                 #获取充值之前的余额
                 end_money = self.db.get_one(sql)[0]
-                recharge_money = decimal.Decimal(str(data["amount"]))#decimal只支持整数，蜀国有小数的话先转化成str就会自动保存1位小数
+                recharge_money = decimal.Decimal(str(data["amount"]))#decimal只支持整数，如果有小数的话先转化成str就会自动保存1位小数
                 my_log.info("充值之前金额为{}\n，充值金额为：{}\n，充值之后金额为{}，".format(start_money, recharge_money, end_money))
                 # 进行断言
                 self.assertEqual(recharge_money, end_money - start_money)
